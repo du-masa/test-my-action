@@ -8,5 +8,7 @@ jobs:
       BRAN: main
     steps:
       - uses: actions/checkout@v4
-      - run: echo "${BRAN}"
+      - id: source
+        run: echo "${BRAN}" >> "${GITHUB_OUTPUT}"
+      - run: echo ${{steps.source.outputs.result}}
       - run: echo ${{github.actor}}
