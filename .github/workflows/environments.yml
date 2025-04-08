@@ -1,0 +1,15 @@
+name: Environments
+on:
+  workflow_dispatch:                       # 手動実行イベント
+    inputs:
+      environments-name:                            # 入力パラメータ名
+        type: environment                       # データ型（文字列）
+        default: test                     # 入力パラメータのデフォルト値
+        required: false                     # 入力パラメータの必須フラグ
+        description: Environment name      # 入力パラメータの概要
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    environment: ${{inputs.environments-name}}
+    steps:
+      - run: echo "${{ vars.USERNAME }}" # 入力パラメータ「greeting」の参照
