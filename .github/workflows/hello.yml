@@ -3,7 +3,9 @@ on: push
 jobs:
   hello:
     runs-on: ubuntu-latest
+    env:
+      BRAN: main
     steps:
       - uses: actions/checkout@v4
-      - run: echo 'Hello World'
-      - run: echo "${{github.actor}}"
+      - run: echo "${BRAN}"
+      - run: echo ${{github.actor}}
