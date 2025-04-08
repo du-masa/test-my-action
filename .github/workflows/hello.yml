@@ -9,6 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: source
-          run: echo "main=${BRAN}" >> "${GITHUB_OUTPUT}"
+        run: echo "main=${BRAN}" >> "${GITHUB_OUTPUT}"
       - run: echo ${{steps.source.outputs.main}}
       - run: echo ${{github.actor}}
