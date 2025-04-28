@@ -8,9 +8,12 @@ jobs:
       BRAN: main
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        id: setup-node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
       - name: npm install
+        if: steps.setup-node.outputs.cache-hit != 'true'
         run: npm ci
