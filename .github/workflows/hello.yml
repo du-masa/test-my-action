@@ -17,3 +17,5 @@ jobs:
       - name: npm install
         if: steps.setup-node.outputs.cache-hit != 'true'
         run: npm ci
+      - name: echo react
+        run: npm ls
