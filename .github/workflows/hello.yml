@@ -1,5 +1,5 @@
 name: Hello World
-run-name: Run by test
+run-name: Run by @${{github.actor}}
 on: push
 jobs:
   hello:
