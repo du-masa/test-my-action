@@ -8,7 +8,9 @@ jobs:
       BRAN: main
     steps:
       - uses: actions/checkout@v4
-      - id: source
-        run: echo "main=${BRAN}" >> "${GITHUB_OUTPUT}"
-      - run: echo ${{steps.source.outputs.main}}
-      - run: echo ${{github.actor}}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - name: npm install
+        run: npm ci
